@@ -1,7 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LayoutComponent } from './ui/layout/layout.component';
+import { CryptocurrenciesComponent } from './ui/components/cryptocurrencies/cryptocurrencies.component';
+import { HomeComponent } from './ui/components/home/home.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      {
+        path: 'cryptocurrencies',
+        loadChildren: () =>
+          import('../app/ui/components/cryptocurrencies/cryptocurrencies.module').then(
+            (m) => m.CryptocurrenciesModule
+          ),
+      },
+    ]}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
