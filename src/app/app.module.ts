@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
 import { AdminModule } from './admin/admin.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -17,9 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UiModule,
     AdminModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+    AppRoutingModule, HttpClientModule, FontAwesomeModule
   ],
-  providers: [],
+  providers: [{ provide: 'baseUrl', useValue: 'https://localhost:7294/api' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

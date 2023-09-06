@@ -1,0 +1,53 @@
+<table class="table verticle-middle table-responsive-sm">
+    <thead>
+      <tr>
+        <th scope="col" class="bg-transparent text-white" style="width: 55%">
+          Kripto Para  
+        </th>
+        <th
+          scope="col"
+          class="bg-transparent text-white text-center"
+          style="width: 15%"
+        >
+          değişim
+        </th>
+        <th
+          scope="col"
+          class="bg-transparent text-white text-center"
+          style="width: 15%"
+        >
+          Fiyat
+        </th>
+        <th
+          scope="col"
+          class="bg-transparent text-white text-center"
+          style="width: 15%"
+        >
+          İşlem
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of datas">
+        <td class="bg-transparent text-white">{{ item.name }}</td>
+        <td class="bg-transparent text-white text-center">
+        <ng-container *ngIf="(item.cryptocurrencyPrices[item.cryptocurrencyPrices.length-1].price - item.cryptocurrencyPrices[item.cryptocurrencyPrices.length-2].price)>0; else elseTemplate">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="trending_up" style="color: green;"></mat-icon>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="trending_down" style="color: red;"></mat-icon>
+        </ng-template>
+      </td>
+
+        <td class="bg-transparent text-white text-center">
+          {{ item.unitPrice | currency : "TRY" : "₺" }}
+        </td>
+        <td class="bg-transparent text-white text-center">
+          <button type="button" class="btn btn-info btn-sm me-1" [routerLink]="['details',item.id]">Detay</button>
+          <button type="button" class="btn btn-success btn-sm ms-1">Al</button>
+          <button type="button" class="btn btn-danger btn-sm ms-1">Sat</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

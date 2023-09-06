@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="row main-content bg-success text-center">
+    <div class="col-md-4 text-center company__info">
+      <h4 class="company_title">StockMarket</h4>
+    </div>
+    <div class="col-md-8 col-xs-12 col-sm-12 login_form">
+      <div class="container-fluid pt-2">
+        <div class="row">
+          <h2>Giriş</h2>
+        </div>
+        <div class="row">
+          <form [formGroup]="form" class="form-group" (ngSubmit)="login()">
+            <div class="row">
+              <fa-icon [icon]="faUser"></fa-icon>
+              <input
+                type="text"
+                formControlName="username"
+                id="username"
+                class="form__input"
+                placeholder="Kullanıcı Adı"
+              />
+            </div>
+            <div class="row">
+              <fa-icon [icon]="faKey"></fa-icon>
+              <input
+                type="password"
+                formControlName="password"
+                id="password"
+                class="form__input"
+                placeholder="Şifre"
+              />
+            </div>
+            <div class="text-start">
+              <input
+                type="checkbox"
+                formControlName="remember_me"
+                id="remember_me"
+                class=""
+              />
+              <label for="remember_me">Remember Me!</label>
+            </div>
+            <div class="text-center">
+              <button
+                class="btn"
+                [disabled]="validation"
+              >
+                Giriş Yap
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="row">
+          <p>Hesabın yok mu? <a routerLink="/register">Kayıt Ol</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

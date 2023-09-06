@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CryptocurrenciesModule } from './cryptocurrencies/cryptocurrencies.module';
 import { HomeModule } from './home/home.module';
+import { AuthModule } from './auth/auth.module';
 
 
 
@@ -11,7 +12,8 @@ import { HomeModule } from './home/home.module';
   imports: [
     CommonModule,
     CryptocurrenciesModule,
-    HomeModule
+    HomeModule,
+    AuthModule
   ]
 })
 export class ComponentsModule { }
